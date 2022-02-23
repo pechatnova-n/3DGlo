@@ -29,12 +29,12 @@ const timer = (deadline) => {
             timerSeconds.textContent = addZerro(getTime.seconds);
         }
 
-        console.log('обновлеие')
+        setInterval(function() {
+            if(getTime.timeRemaining > 0) {
+                updateClock();
+            }
+        }, 1000);
 
-        if(getTime.timeRemaining > 0) {
-            setTimeout(updateClock, 1000);
-            //setInterval(updateClock, 1000);
-        }
     }
 
     const addZerro = (num) => (num < 10) ? '0' + num : num;
