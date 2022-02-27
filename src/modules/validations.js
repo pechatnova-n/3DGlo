@@ -31,11 +31,6 @@ const validations = () => {
         })
     })
 
-    console.log(inputsText)
-
-
-
-
-}
+   }
 
 export default validations;
