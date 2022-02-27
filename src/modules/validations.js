@@ -18,7 +18,6 @@ const validations = () => {
         e.target.value = e.target.value.replace(/[^\sа-яА-Я-]+/i, "")
     })
 
-
     inputsEmail.forEach((item) => {
         item.addEventListener('input', (e) => {
             e.target.value = e.target.value.replace(/[^\w@_\-.!~*']+/, "")
@@ -31,10 +30,56 @@ const validations = () => {
         })
     })
 
-    console.log(inputsText)
 
 
+    //-----complicated task #2-----
 
+    //3item - delete spaces and hyphens
+    const deleteSpace = (e) => {
+        e.target.value = e.target.value.replace(/^[\s-]*/, "")
+        e.target.value = e.target.value.replace(/[\s-]*$/, "")
+
+        e.target.value = e.target.value.replace(/-{2,}/g, "-")
+        e.target.value = e.target.value.replace(/\s{2,}/g, " ")
+
+    }
+
+    inputsText.forEach(item => {
+        item.addEventListener('blur', (e) => {
+            deleteSpace(e)
+        })
+    })
+
+    textarea.addEventListener('blur', (e) => {
+        deleteSpace(e)
+    })
+
+    inputsEmail.forEach(item => {
+        item.addEventListener('blur', (e) => {
+            deleteSpace(e)
+        })
+    })
+
+    inputsTel.forEach(item => {
+        item.addEventListener('blur', (e) => {
+            deleteSpace(e)
+        })
+    })
+
+
+    // 4item - change first letter on uppercase
+    inputsText.forEach((item) => {
+        item.addEventListener('blur', (e) => {
+            const inputValueArr = []
+            let value = e.target.value
+            value = value.trim().split(" ")
+            value.forEach(el => {
+                el = el[0].toUpperCase() + el.slice(1).toLowerCase()
+                inputValueArr.push(el)
+            })
+            e.target.value = inputValueArr.join(' ')
+        })
+    })
 
 }
 
