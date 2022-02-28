@@ -3,7 +3,6 @@
 const modal = () => {
     const modal = document.querySelector('.popup')
     const content = modal.querySelector('.popup-content')
-    const closeBtn = modal.querySelector('.popup-close')
     const buttons = document.querySelectorAll('.popup-btn')
     const screenWidth = window.screen.width
 
@@ -35,9 +34,11 @@ const modal = () => {
         })
     })
 
-
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none'
+    modal.addEventListener('click', (e) => {
+        console.log(e.target.closest('.popup-content'))
+        if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')) {
+            modal.style.display = 'none'
+        }
     })
 }
 
