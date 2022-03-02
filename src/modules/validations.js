@@ -8,7 +8,6 @@ const validations = () => {
     const textarea = document.getElementById('form2-message')
 
 
-
     inputsText.forEach((item) => {
         if(!item.classList.contains('calc-item')) {
             item.addEventListener('input', (e) => {
@@ -48,9 +47,11 @@ const validations = () => {
     }
 
     inputsText.forEach(item => {
-        item.addEventListener('blur', (e) => {
-            deleteSpace(e)
-        })
+        if(!item.classList.contains('calc-item')) {
+            item.addEventListener('blur', (e) => {
+                deleteSpace(e)
+            })
+        }
     })
 
     textarea.addEventListener('blur', (e) => {
@@ -72,16 +73,18 @@ const validations = () => {
 
     // 4item - change first letter on uppercase
     inputsText.forEach((item) => {
-        item.addEventListener('blur', (e) => {
-            const inputValueArr = []
-            let value = e.target.value
-            value = value.trim().split(" ")
-            value.forEach(el => {
-                el = el[0].toUpperCase() + el.slice(1).toLowerCase()
-                inputValueArr.push(el)
+        if(!item.classList.contains('calc-item')) {
+            item.addEventListener('blur', (e) => {
+                const inputValueArr = []
+                let value = e.target.value
+                value = value.trim().split(" ")
+                value.forEach(el => {
+                    el = el[0].toUpperCase() + el.slice(1).toLowerCase()
+                    inputValueArr.push(el)
+                })
+                e.target.value = inputValueArr.join(' ')
             })
-            e.target.value = inputValueArr.join(' ')
-        })
+        }
     })
 
 }
