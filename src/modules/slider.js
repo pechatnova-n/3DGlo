@@ -42,7 +42,9 @@ const slider = () => {
     }
 
     const startSlide = (timer = 1500) => {
-        addDots(slides.length);
+        if (dots.length === 0) {
+            addDots(slides.length);
+        }
         interval = setInterval(autoSlide, timer);
     }
 
