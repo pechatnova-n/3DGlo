@@ -1,3 +1,20 @@
+/*import timer from "./modules/timer"
+import menu from "./modules/menu"
+import modal from "./modules/modal"
+import calculator from "./modules/calculator"
+import validations from "./modules/validations"
+import tabs from "./modules/tabs"
+import slider from "./modules/slider"
+
+
+timer('1 march 2022')
+menu()
+modal()
+calculator()
+validations()
+tabs()
+slider()*/
+
 import timer from "./modules/timer"
 import menu from "./modules/menu"
 import modal from "./modules/modal"
@@ -13,5 +30,5 @@ modal()
 calculator()
 validations()
 tabs()
-slider()
+slider('.portfolio-content', '.portfolio-item', '.portfolio-dots')
 
