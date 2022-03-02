@@ -8,10 +8,13 @@ const validations = () => {
     const textarea = document.getElementById('form2-message')
 
 
+
     inputsText.forEach((item) => {
-        item.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/[^\sа-яА-Я-]+/i, "")
-        })
+        if(!item.classList.contains('calc-item')) {
+            item.addEventListener('input', (e) => {
+                e.target.value = e.target.value.replace(/[^\sа-яА-Я-]+/i, "")
+            })
+        }
     })
 
     textarea.addEventListener('input', (e) => {

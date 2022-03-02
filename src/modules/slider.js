@@ -49,6 +49,7 @@ const slider = (slidesContainer, slidesItem, dotsContainer) => {
         const startSlide = (timer = 1500) => {
             if (dots.length === 0) {
                 addDots(slides.length);
+                dots[0].classList.add('dot-active')
             }
             interval = setInterval(autoSlide, timer);
         }
