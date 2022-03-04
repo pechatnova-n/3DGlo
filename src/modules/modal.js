@@ -1,4 +1,5 @@
 'use strict'
+import { animate } from "./helpers"
 
 const modal = () => {
     const modal = document.querySelector('.popup')
@@ -15,15 +16,31 @@ const modal = () => {
             const anim = () => {
 
                 if(screenWidth < 768) {
-                    modal.style.display = 'block'
-                    content.style.top = '30%'
+                    animate({
+                        duration: 2000,
+                        timing(timeFraction) {
+                            return timeFraction;
+                        },
+                        draw(progress) {
+                            modal.style.display = 'block'
+                            content.style.top = (progress * 30) + "%";
+                        }
+                    });
                 } else {
                     count++
                     idInterval = requestAnimationFrame(anim)
 
                     if(count <= 85) {
-                        modal.style.display = 'block'
-                        content.style.top = count*0.2 + '%'
+                        animate({
+                            duration: 2000,
+                            timing(timeFraction) {
+                                return timeFraction;
+                            },
+                            draw(progress) {
+                                modal.style.display = 'block'
+                                content.style.top = (progress * count * 0.2) + "%";
+                            }
+                        });
                     } else {
                         cancelAnimationFrame(idInterval)
                     }
