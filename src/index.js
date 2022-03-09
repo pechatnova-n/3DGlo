@@ -7,9 +7,10 @@ import tabs from "./modules/tabs"
 import slider from "./modules/slider"
 import calc from "./modules/calc"
 import swiper from "./modules/swiper"
+import sendForm from "./modules/sendForm"
 
 
-timer('1 march 2022')
+timer('31 march 2022')
 menu()
 modal()
 calculator()
@@ -18,3 +19,11 @@ tabs()
 slider('.portfolio-content', '.portfolio-item', '.portfolio-dots')
 calc(100)
 swiper()
+sendForm({formId: 'form1',
+    someElement: [
+        {
+            type: 'block',
+            id: 'total'
+        }
+    ]
+})
