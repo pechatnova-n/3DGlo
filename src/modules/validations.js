@@ -11,15 +11,14 @@ const validations = () => {
     inputsText.forEach((item) => {
         if(!item.classList.contains('calc-item')) {
             item.addEventListener('input', (e) => {
-                e.target.value = e.target.value.replace(/[^\sа-яА-Я-]+/i, "")
+                e.target.value = e.target.value.replace(/[^\sа-яА-Я]+/i, "")
             })
         }
     })
 
     textarea.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^\sа-яА-Я-]+/i, "")
+        e.target.value = e.target.value.replace(/[^\sа-яА-Я0-9.,!?-]+/i, "")
     })
-
     inputsEmail.forEach((item) => {
         item.addEventListener('input', (e) => {
             e.target.value = e.target.value.replace(/[^\w@_\-.!~*']+/, "")
@@ -28,7 +27,7 @@ const validations = () => {
 
     inputsTel.forEach((item) => {
         item.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/[^\d()-]+/, "")
+            e.target.value = e.target.value.replace(/[^\d+()-]+/, "")
         })
     })
 

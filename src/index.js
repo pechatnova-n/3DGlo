@@ -27,3 +27,17 @@ sendForm({formId: 'form1',
         }
     ]
 })
+sendForm({formId: 'form2',
+    someElement: [
+        {
+            type: 'block',
+            id: 'total'
+        }
+    ]})
+sendForm({formId: 'form3',
+    someElement: [
+        {
+            type: 'block',
+            id: 'total'
+        }
+    ]})

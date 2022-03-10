@@ -3,10 +3,11 @@
 const sendForm = ({ formId, someElement = [] }) => {
     const form = document.getElementById(formId);
     const statusBlock = document.createElement('div');
-    const loadText = 'Загрузка..';
+    const loadText = "Звгрузка...";
     const errorText = 'Ошибка';
     const successText = 'Спасибо! Наш менеджер свяжется с вами ближайшее время';
 
+    statusBlock.style.color = '#FFFFFF';
 
     const validate = (list) => {
         let success = true;
@@ -16,7 +17,6 @@ const sendForm = ({ formId, someElement = [] }) => {
                 success = false;
             }
         })*/
-
 
         return success;
     }
