@@ -42,11 +42,12 @@ const sendForm = ({ formId, someElement = [] }) => {
 
 
      const sendData = (data) => {
-        return fetch('https://jsonplaceholder.typicode.com/posts', {
+        return  fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
-            body: JSON.stringify(data),
+            //body: JSON.stringify(data),
+            body: data,
             headers: {
-                "Contnt-Type": "application/json"
+                "Contnt-Type": "form/multipart"
             }
         }).then(res => res.json())
     }
