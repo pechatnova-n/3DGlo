@@ -3,7 +3,7 @@
 const sendForm = ({ formId, someElement = [] }) => {
     const form = document.getElementById(formId);
     const statusBlock = document.createElement('div');
-    const loadText = "Звгрузка...";
+    const loadText = "Загрузка...";
     const errorText = 'Ошибка';
     const successText = 'Спасибо! Наш менеджер свяжется с вами ближайшее время';
 
@@ -17,6 +17,25 @@ const sendForm = ({ formId, someElement = [] }) => {
                 success = false;
             }
         })*/
+
+        list.forEach(item => {
+            if (item.name === 'user_name') {
+                if(item.value.length < 2) {
+                   success = false;
+                }
+            } else if (item.name === 'user_phone') {
+                if(item.value.length < 11) {
+                    success = false;
+                }
+            } else if (item.name === 'user_message') {
+                if(item.value.length < 2) {
+                    success = false;
+                }
+            } else {
+                success = true;
+            }
+        })
+
 
         return success;
     }
@@ -64,6 +83,9 @@ const sendForm = ({ formId, someElement = [] }) => {
                     formElements.forEach(input => {
                         input.value = '';
                     })
+                    setInterval(() => {
+                        statusBlock.textContent = "";
+                    }, 4000)
                 })
                 .catch(error => {
                     statusBlock.textContent = errorText;

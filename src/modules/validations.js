@@ -11,7 +11,7 @@ const validations = () => {
     inputsText.forEach((item) => {
         if(!item.classList.contains('calc-item')) {
             item.addEventListener('input', (e) => {
-                e.target.value = e.target.value.replace(/[^\sа-яА-Я]+/i, "")
+                e.target.value = e.target.value.replace(/[^\sа-яА-Я]+/i, "");
             })
         }
     })
@@ -19,9 +19,11 @@ const validations = () => {
     textarea.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^\sа-яА-Я0-9.,!?-]+/i, "")
     })
+
     inputsEmail.forEach((item) => {
+        item.required = true;
         item.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/[^\w@_\-.!~*']+/, "")
+            e.target.value = e.target.value.replace(/[^\w@_\-.!~*']+/, "");
         })
     })
 
@@ -70,7 +72,7 @@ const validations = () => {
     })
 
 
-    // 4item - change first letter on uppercase
+/*    // 4item - change first letter on uppercase
     inputsText.forEach((item) => {
         if(!item.classList.contains('calc-item')) {
             item.addEventListener('blur', (e) => {
@@ -84,7 +86,7 @@ const validations = () => {
                 e.target.value = inputValueArr.join(' ')
             })
         }
-    })
+    })*/
 
 }
 
