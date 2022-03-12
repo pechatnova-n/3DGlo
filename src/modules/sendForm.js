@@ -19,6 +19,7 @@ const sendForm = ({ formId, someElement = [] }) => {
         })*/
 
         list.forEach(item => {
+            console.log(item)
             if (item.name === 'user_name') {
                 if(item.value.length < 2) {
                    success = false;
@@ -92,7 +93,11 @@ const sendForm = ({ formId, someElement = [] }) => {
                     statusBlock.textContent = errorText;
                 })
         } else {
-            alert('Данные не валидны!')
+            formElements.forEach(input => {
+                input.value = '';
+            })
+            statusBlock.textContent = "";
+            alert('Данные не валидны!');
         }
     }
 
