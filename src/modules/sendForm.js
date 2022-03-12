@@ -19,7 +19,6 @@ const sendForm = ({ formId, someElement = [] }) => {
         })*/
 
         list.forEach(item => {
-            console.log(item)
             if (item.name === 'user_name') {
                 if(item.value.length < 2) {
                    success = false;
@@ -45,10 +44,9 @@ const sendForm = ({ formId, someElement = [] }) => {
      const sendData = (data) => {
         return  fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
-            //body: JSON.stringify(data),
-            body: data,
+            body: JSON.stringify(data),
             headers: {
-                "Contnt-Type": "form/multipart"
+                "Contnt-Type": "text/html; charset=utf-8"
             }
         }).then(res => res.json())
     }
@@ -66,6 +64,7 @@ const sendForm = ({ formId, someElement = [] }) => {
             formBody[key] = val;
         })
 
+
         someElement.forEach(elem => {
             const element = document.getElementById(elem.id);
 
@@ -78,7 +77,7 @@ const sendForm = ({ formId, someElement = [] }) => {
 
 
         if(validate(formElements)) {
-            sendData(formData)
+            sendData(formBody)
                 .then(data => {
                     statusBlock.textContent = successText;
 
