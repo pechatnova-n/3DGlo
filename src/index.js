@@ -24,20 +24,9 @@ sendForm({formId: 'form1',
         {
             type: 'block',
             id: 'total'
+
         }
     ]
 })
-sendForm({formId: 'form2',
-    someElement: [
-        {
-            type: 'block',
-            id: 'total'
-        }
-    ]})
-sendForm({formId: 'form3',
-    someElement: [
-        {
-            type: 'block',
-            id: 'total'
-        }
-    ]})
+sendForm({formId: 'form2'})
+sendForm({formId: 'form3'})

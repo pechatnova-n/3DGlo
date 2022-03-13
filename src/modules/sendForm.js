@@ -12,12 +12,6 @@ const sendForm = ({ formId, someElement = [] }) => {
     const validate = (list) => {
         let success = true;
 
-       /* list.forEach(input => {
-            if(!input.classList.contains('success')) {
-                success = false;
-            }
-        })*/
-
         list.forEach(item => {
             if (item.name === 'user_name') {
                 if(item.value.length < 2) {
@@ -41,21 +35,31 @@ const sendForm = ({ formId, someElement = [] }) => {
     }
 
 
+
+
      const sendData = (data) => {
-        return  fetch('https://jsonplaceholder.typicode.com/posts', {
+        return fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
-                "Contnt-Type": "text/html; charset=utf-8"
-            }
-        }).then(res => res.json())
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        }).then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => console.log(error))
     }
+
+
+
 
 
     const submitForm = () => {
         const formElements = form.querySelectorAll('input');
         const formData = new FormData(form);
         const formBody = {}
+
 
         statusBlock.textContent = loadText;
         form.append(statusBlock);
@@ -86,7 +90,7 @@ const sendForm = ({ formId, someElement = [] }) => {
                     })
                     setInterval(() => {
                         statusBlock.textContent = "";
-                    }, 4000)
+                    }, 3500)
                 })
                 .catch(error => {
                     statusBlock.textContent = errorText;
